@@ -1,0 +1,6 @@
+[
+ {"id":"proposal-presentation","title":"Proposal Presentation","category":"Proposal","description":"Approved proposal slides have not yet been supplied.","status":"pending","date":null,"version":null,"type":"PDF","size":null,"viewUrl":null,"downloadUrl":null,"approved":false},
+ {"id":"pp1","title":"Progress Presentation 1","category":"Progress Presentation 1","description":"Approved presentation slides have not yet been supplied.","status":"pending","date":null,"version":null,"type":"PDF","size":null,"viewUrl":null,"downloadUrl":null,"approved":false},
+ {"id":"pp2","title":"Progress Presentation 2","category":"Progress Presentation 2","description":"Approved presentation slides have not yet been supplied.","status":"pending","date":null,"version":null,"type":"PDF","size":null,"viewUrl":null,"downloadUrl":null,"approved":false},
+ {"id":"final-presentation","title":"Final Presentation","category":"Final Presentation","description":"Approved final presentation slides have not yet been supplied.","status":"pending","date":null,"version":null,"type":"PDF","size":null,"viewUrl":null,"downloadUrl":null,"approved":false}
+]

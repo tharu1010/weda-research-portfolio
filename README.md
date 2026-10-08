@@ -1,2 +1,31 @@
-# weda-research-portfolio
-Official Research Portfolio Website for Weda.lk
+# Weda.lk Academic Research Portfolio
+
+Independent, static academic research portfolio for Weda.lk. It is separate from the production Weda.lk application and contains no production source, backend, authentication or ML inference.
+
+## Pages
+
+Home, Domain, Milestones, Documents, Presentations, About Us and Contact Us are implemented as seven responsive HTML pages.
+
+## Confirmed architecture
+
+`User request -> C1: 20 providers -> C2: 10 providers -> C4: top 5 providers`
+
+Component 3 is an independent documentation-oriented contribution. The 20/10/5 values are target pipeline outputs supplied by the project team, not published experimental results.
+
+## Local development
+
+No build or dependencies are required. From the repository root, run `python -m http.server 8000`, then open `http://localhost:8000/`. A server is required for the JSON-backed libraries.
+
+## Content maintenance
+
+- Add approved PDFs to `assets/documents/` or `assets/presentations/`.
+- Update `data/documents.json` or `data/presentations.json`.
+- Keep repository-relative URLs beginning with `./`.
+- Set `approved: true` and `status: "available"` only after completing publication review.
+- See `DOCUMENT_UPLOAD_GUIDE.md`, `CONTENT_CHECKLIST.md`, and `DEPLOYMENT.md`.
+
+## Current limitations
+
+No approved research PDFs, presentations, team identities, supervisor details, institutional information, milestone dates/marks, citations, datasets, results, project email, production screenshots or live application URL were supplied. The website labels these items as pending rather than inventing them.
+
+Designed for GitHub Pages from `main` at repository root. Course-web acceptance, its 20 MB limit, JavaScript permission and the official submission destination require university confirmation.

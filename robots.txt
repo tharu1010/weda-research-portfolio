@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tharu1010.github.io/weda-research-portfolio/sitemap.xml
