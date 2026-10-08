@@ -2,6 +2,8 @@
 
 Test date: 2026-10-08 (Asia/Colombo)
 
+Redesign validation: the shared premium design system, animated hero treatment, pipeline visualization, timeline, libraries, team and contact layouts were revalidated after the complete visual redesign.
+
 ## Passed
 
 - Seven required pages found; each has one H1, unique title/description and all seven navigation items.
