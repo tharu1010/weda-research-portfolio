@@ -17,3 +17,14 @@ Test Chrome and one additional browser; widths 320, 375, 768, 1024 and 1440; key
 Identify the last known-good commit, create a new revert commit, push it to `main`, and verify the Pages redeployment. Avoid destructive history rewriting.
 
 GitHub Pages is not yet confirmed as the official course-web destination. Confirm the university's 20 MB rule, JavaScript/external hosting acceptance and final submission route.
+
+## Persistent backend setup (Supabase)
+
+1. Create a Supabase project owned by the research team and run `supabase/schema.sql` in the SQL editor.
+2. Create administrator users in Authentication. Insert their user UUIDs into `public.profiles` with `is_admin = true`; never put passwords in this repository.
+3. Copy `js/config.example.js` to `js/config.js` and set the project URL and public anon key. These values are public by design; row-level security is the authorization boundary.
+4. Deploy a `contact` Edge Function that validates the form, rejects the honeypot field, enforces per-IP rate limits, verifies Turnstile, and sends through the approved mail provider. Store destination address, mail API key, and Turnstile secret as function secrets—not frontend variables.
+5. Review the storage and database policies with the project supervisor before uploading files. Create signed URLs for private previews; only records marked `is_public` are publicly readable.
+6. Visit `admin.html`, authenticate with an approved account, upload a harmless test PDF, verify it from another device, then remove the test asset.
+
+Until steps 1–6 are complete, the contact form reports that delivery is unconfigured and the admin interface cannot authenticate. This is intentional; neither feature simulates success.

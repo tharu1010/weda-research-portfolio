@@ -4,7 +4,7 @@ import json, re, sys
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = ["index.html", "domain.html", "milestones.html", "documents.html", "presentations.html", "about.html", "contact.html"]
-NAV = ["Home", "Domain", "Milestones", "Documents", "Presentations", "About Us", "Contact Us"]
+NAV = ["Home", "Milestones", "Documents", "Presentations", "About Us", "Contact Us"]
 
 class PageParser(HTMLParser):
     def __init__(self):
@@ -26,6 +26,8 @@ for filename in PAGES:
     if not parser.title or not parser.description: errors.append(f"{filename}: missing title or description")
     for item in NAV:
         if f">{item}<" not in text: errors.append(f"{filename}: missing nav item {item}")
+    if '>Domain<' not in text and '>Project Scope<' not in text:
+        errors.append(f"{filename}: missing Project Scope navigation item")
     for attrs in parser.images:
         if "alt" not in attrs: errors.append(f"{filename}: image missing alt")
     for href, attrs in parser.links:
