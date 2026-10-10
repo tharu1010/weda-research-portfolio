@@ -1,10 +1,10 @@
 # Weda.lk Academic Research Portfolio
 
-Independent, static academic research portfolio for Weda.lk. It is separate from the production Weda.lk application and contains no production source, backend, authentication or ML inference.
+Independent academic research portfolio for Weda.lk. It is separate from the production Weda.lk application and contains no production application or ML inference. Public pages remain static; optional Supabase integration provides administrator authentication, persistent storage, metadata, and contact delivery.
 
 ## Pages
 
-Home, Domain, Milestones, Documents, Presentations, About Us and Contact Us are implemented as seven responsive HTML pages.
+Home, Project Scope, Milestones, Documents, Presentations, About Us and Contact Us are implemented as seven responsive HTML pages. `admin.html` is a no-index authenticated management surface with upload, visibility, metadata and deletion controls.
 
 ## Confirmed architecture
 
@@ -26,6 +26,6 @@ No build or dependencies are required. From the repository root, run `python -m 
 
 ## Current limitations
 
-No approved research PDFs, presentations, team identities, supervisor details, institutional information, milestone dates/marks, citations, datasets, results, project email, production screenshots or live application URL were supplied. The website labels these items as pending rather than inventing them.
+No approved research PDFs, presentations, team identities, supervisor details, institutional information, milestone dates/marks, citations, datasets, results, project email, production screenshots, live application URL, or backend credentials were supplied. The website labels these items as pending rather than inventing them. Without Supabase configuration the public libraries use their repository manifests, while uploads and message delivery remain disabled. See `DEPLOYMENT.md` for backend activation.
 
 Designed for GitHub Pages from `main` at repository root. Course-web acceptance, its 20 MB limit, JavaScript permission and the official submission destination require university confirmation.

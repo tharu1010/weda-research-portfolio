@@ -18,7 +18,6 @@ if (navToggle && navList) {
     if (event.key === 'Escape') closeMenu();
   });
 }
-
 const year = document.querySelector('[data-year]');
 if (year) year.textContent = new Date().getFullYear();
 
@@ -41,6 +40,17 @@ if (header) {
   const updateHeader = () => header.classList.toggle('is-scrolled', scrollY > 24);
   updateHeader();
   addEventListener('scroll', updateHeader, { passive: true });
+}
+
+const scopeLinks = [...document.querySelectorAll('.scope-nav a')];
+const scopeSections = [...document.querySelectorAll('[data-scope-section]')];
+if (scopeLinks.length && scopeSections.length && 'IntersectionObserver' in window) {
+  const scopeObserver = new IntersectionObserver(entries => {
+    const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!visible) return;
+    scopeLinks.forEach(link => link.classList.toggle('active', link.hash === `#${visible.target.id}`));
+  }, { rootMargin: '-28% 0px -58% 0px', threshold: [0, .15, .4] });
+  scopeSections.forEach(section => scopeObserver.observe(section));
 }
 
 const hero = document.querySelector('.hero');
