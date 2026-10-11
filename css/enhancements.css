@@ -21,3 +21,5 @@
 .brand-logo{display:block;width:auto;height:68px;object-fit:contain;filter:drop-shadow(0 7px 16px rgba(0,0,0,.2))}
 .site-footer .brand-logo{height:94px}
 @media(max-width:950px){.brand-logo{height:58px}.site-footer .brand-logo{height:82px}}
+.hero h1{max-width:19ch;font-size:clamp(2.7rem,4.7vw,5rem);line-height:1.02;letter-spacing:-.035em}
+@media(max-width:680px){.hero h1{max-width:none;font-size:clamp(2.25rem,11vw,3.25rem);line-height:1.06}}
