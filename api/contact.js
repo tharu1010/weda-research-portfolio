@@ -13,7 +13,7 @@ module.exports = async function handler(request, response) {
   if (!clean.name || !EMAIL_PATTERN.test(clean.email) || !clean.subject || clean.message.length < 10) {
     return response.status(400).json({ error: 'Please provide valid contact details and a message.' });
   }
-  if (!process.env.RESEND_API_KEY || !process.env.CONTACT_TO_EMAIL) {
+  if (!process.env.RESEND_API_KEY) {
     return response.status(503).json({ error: 'Message delivery is not configured.' });
   }
   try {
@@ -22,7 +22,7 @@ module.exports = async function handler(request, response) {
       headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
         from: process.env.CONTACT_FROM_EMAIL || 'Weda.lk Research <onboarding@resend.dev>',
-        to: [process.env.CONTACT_TO_EMAIL],
+        to: [process.env.CONTACT_TO_EMAIL || 'tharuthathsarani737@gmail.com'],
         reply_to: clean.email,
         subject: `Weda.lk Research: ${clean.subject}`,
         text: `Name: ${clean.name}\nEmail: ${clean.email}\n\n${clean.message}`
