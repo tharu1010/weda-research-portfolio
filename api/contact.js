@@ -25,7 +25,7 @@ module.exports = async function handler(request, response) {
       headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
         from: process.env.CONTACT_FROM_EMAIL || 'Weda.lk Research <onboarding@resend.dev>',
-        to: ['tharuthathsarani737@gmail.com'],
+        to: ['thathsaranitharu737@gmail.com'],
         reply_to: clean.email,
         subject: `Weda.lk Research: ${clean.subject}`,
         text: `Name: ${clean.name}\nEmail: ${clean.email}\n\n${clean.message}`

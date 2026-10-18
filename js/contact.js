@@ -1,6 +1,6 @@
 const contactForm = document.querySelector('[data-contact-form]');
 const contactStatus = contactForm?.querySelector('[data-form-message]');
-const contactEmail = 'tharuthathsarani737@gmail.com';
+const contactEmail = 'thathsaranitharu737@gmail.com';
 
 function showContactStatus(text, success = false) {
   contactStatus.hidden = false;
