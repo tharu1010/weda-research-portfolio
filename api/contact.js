@@ -1,9 +1,12 @@
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 module.exports = async function handler(request, response) {
+  if (request.method === 'GET') {
+    return response.status(200).json({ configured: Boolean(process.env.RESEND_API_KEY) });
+  }
   if (request.method !== 'POST') return response.status(405).json({ error: 'Method not allowed.' });
   const { name = '', email = '', subject = '', message = '', company = '' } = request.body || {};
-  if (company) return response.status(200).json({ ok: true });
+  if (company) return response.status(400).json({ error: 'Submission rejected. Please clear autofilled hidden fields and try again.' });
   const clean = {
     name: String(name).trim().slice(0, 100),
     email: String(email).trim().slice(0, 254),
@@ -22,7 +25,7 @@ module.exports = async function handler(request, response) {
       headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
         from: process.env.CONTACT_FROM_EMAIL || 'Weda.lk Research <onboarding@resend.dev>',
-        to: [process.env.CONTACT_TO_EMAIL || 'tharuthathsarani737@gmail.com'],
+        to: ['tharuthathsarani737@gmail.com'],
         reply_to: clean.email,
         subject: `Weda.lk Research: ${clean.subject}`,
         text: `Name: ${clean.name}\nEmail: ${clean.email}\n\n${clean.message}`

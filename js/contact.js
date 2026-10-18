@@ -21,7 +21,7 @@ contactForm?.addEventListener('submit', async event => {
       const mailSubject = encodeURIComponent(payload.subject);
       const mailBody = encodeURIComponent(`Name: ${payload.name}\nEmail: ${payload.email}\n\n${payload.message}`);
       window.location.href = `mailto:${contactEmail}?subject=${mailSubject}&body=${mailBody}`;
-      showContactStatus('Your email app has been opened with the message ready to send.', true);
+      showContactStatus('Your email app has been opened. The message has not been sent yet—please press Send in your email app.');
       return;
     }
     if (!result.ok) throw new Error(body.error || 'Message delivery failed.');
